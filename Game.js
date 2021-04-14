@@ -55,20 +55,33 @@ class Game{
             players[index -1].x = x;
             players[index - 1].y = y;
 
-            // Differentiate the main player by printing
-            // the name of the player on the basket.
-             
+             if(index === player.index){
+                         
+                fill("black");
+                textSize(25);
+                text(allPlayers[plr].name ,x-25,y+25);
 
+                
+            }
+           
+                textSize(25);
+                fill("white");
+                text("Player 1 :" +allPlayers.player1.score,50,50);
+               text("Player 2 :" + allPlayers.player2.score, 50, 100);
+        
         }
+       
+       
+        
 
-
-        // Give movements for the players using arrow keys
-        if(keyIsDown(UP_RIGHT) && player.index !== null){
-
-        }
-        if(keyIsDown(UP_LEFT) && player.index !== null){
-
-        }
+       if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
+           player.distance -= 10
+           player.update();
+       }
+       if (keyIsDown(LEFT_ARROW) && player.index !== null) {
+           player.distance += 10
+           player.update();
+       }
        
         
 
